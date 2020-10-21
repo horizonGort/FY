@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>京东-欢迎登录</title>
+    <link rel="shortcut icon" href="../images/jdimg/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+<script src="../js/cookie.js"></script>
+<body>
+    <script src="../lib/jquery.min.js"></script>
+    <script>
+        // 选项卡
+        $(function(){
+                $('#lsa1').click(function(){
+                $('#lsa1').addClass('active')
+                $('#lsa2').removeClass('active')
+                $('#lsa1kuo').removeAttr('style','display:none')
+                $('#lsa2kuo').attr('style','display:none')
+                })
+
+                $('#lsa2').click(function(){
+                $('#lsa2').addClass('active')
+                $('#lsa1').removeClass('active')
+                $('#lsa2kuo').removeAttr('style','display:none')
+                $('#lsa1kuo').attr('style','display:none')
+                })
+            
+        })
+    </script>
+    <header>
+        <div class="logo">
+            <a href="jd.html">
+                <img src="../images/loginimg/pic_001.png">
+            </a>
+            <img src="../images/loginimg/pic_003.png" class="hi">
+        </div>
+    </header>
+    <section>
+        <div class="wrap">
+            <div class="wrap-text">
+                <img src="../images/loginimg/pic_005.png">依据《网络安全法》，为保障您的账户安全和正常使用，请尽快完成手机号验证！ 新版<a href="https://about.jd.com/privacy/" class="black" target="_blank">《京东隐私政策》</a>已上线，将更有利于保护您的个人隐私。
+            </div>
+        </div>
+        
+        <div class="login-wrap">
+            <div class="login-banner">
+                <div class="login-contain">
+                    <img src="../images/loginimg/pic_012.jpg" alt="">
+
+                    <!-- 登录框 -->
+                    <div class="login-block">
+                        <!-- 安全提示 -->
+                        <div class="login-tip">
+                            <p><img src="../images/loginimg/pic_005.png">京东不会以任何理由要求您转账汇款，谨防诈骗。</p>
+                        </div>
+                        
+                        <!-- 登录选项卡 -->
+                        <div class="login-select">
+                            <div class="active" id="lsa1">扫码登录</div>
+                            <div id="lsa2">账户登录</div>
+                        </div>
+                        <div class="lsa1kuo" id="lsa1kuo" >
+                            <div class="lsa1ma">
+                                <img src="../images/loginimg/pic_002.png" alt="">
+                            </div>
+                            <p class="p1">打开<a href="">手机京东</a>，扫描二维码</p>
+                            <p class="p2"><span class="span1"></span>免输入<span class="span2"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;更快<span class="span3"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;更安全</p>
+                        </div>
+                        <div class="lsa2kuo" id="lsa2kuo" style="display: none;">
+                            <form>
+                                <div class="zhanghao">
+                                    <div class="zhanghaopic"></div>
+                                    <input type="text" placeholder="邮箱/用户名/登录手机" name="username">
+                                </div>
+                                <div class="mima">
+                                    <div class="mimapic"></div>
+                                    <input type="text" placeholder="密码" name="password">
+                                </div>
+                                <div class="getmima"><a href="">忘记密码</a></div>
+                                <button class="denglu" type="submit">登&nbsp;&nbsp;&nbsp;&nbsp;录</button>
+                            </form>
+                            
+                        </div>
+                    
+
+                        <!-- 底部框 -->
+                        <div class="login-reg">
+                            <ul>
+                                <li>
+                                    <a href="" class="qq">
+                                        <b class="qq-icon"></b>
+                                        <span>QQ</span>
+                                    </a>
+                                </li>
+                                <span class="line">|</span>
+                                <li>
+                                    <a href="" class="wx">
+                                        <b class="wx-icon"></b>
+                                        <span>微信</span>
+                                    </a>
+                                </li>
+                                <div class="reg">
+                                    <a href="register.html">
+                                        <i></i>
+                                        立即注册
+                                    </a>
+                                </div>
+                            </ul>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="footer100">
+        <div class="footer">
+            <ul>
+                <li><a href="">关于我们</a></li>
+                <li>|</li>
+                <li><a href="">联系我们</a></li>
+                <li>|</li>
+                <li><a href="">人才招聘</a></li>
+                <li>|</li>
+                <li><a href="">商家入驻</a></li>
+                <li>|</li>
+                <li><a href="">广告服务</a></li>
+                <li>|</li>
+                <li><a href="">手机京东</a></li>
+                <li>|</li>
+                <li><a href="">友情链接</a></li>
+                <li>|</li>
+                <li><a href="">销售联盟</a></li>
+                <li>|</li>
+                <li><a href="">京东社区</a></li>
+                <li>|</li>
+                <li><a href="">京东公益</a></li>
+                <li>|</li>
+                <li><a href="">English Site</a></li>
+            </ul>
+            <p>Copyright © 2004-2020  京东JD.com 版权所有</p>
+        </div>
+    </div>
+</body>
+<script>
+    /* 
+        需求:
+            1 如果cookie里面有用户名,我直接把用户名填写到用户名这个文本框里面
+            2 如果点击登陆的时候,同时选中了10天免登陆面登录这个复选框,要求后台设置cookie的时候有效期是10天
+    */
+
+    // 获取相关元素
+    var unameInput = document.getElementsByTagName('input')[0];//用户名输入框
+    var pwInput = document.getElementsByTagName('input')[1];//密码输入框
+    var form = document.getElementsByTagName('form')[0];//form表单
+
+    // 2 点击登陆按钮,会触发form表单的提交事件
+    form.onsubmit = function(e){
+        //阻止浏览器的默认跳转动作
+        e = e||window.event;
+        e.preventDefault?e.preventDefault():e.returnValue =false;
+        location.href = "../../interface/login.php?username="+unameInput.value+"&password="+pwInput.value;
+        
+    }
+</script>
+</html>
