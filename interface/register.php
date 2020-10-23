@@ -10,7 +10,7 @@ $uname = $_POST['username'];//获取前端传递的用户名
 $upass = $_POST['password'];//获取前端传递的密码
 $umail = $_POST['email'];//获取邮箱
 $uphone = $_POST['phone'];//获取电话
-$conn = mysqli_connect('127.0.0.1','root','root','user');
+$conn = mysqli_connect('127.0.0.1','root','root','shop');
 $sql = "INSERT INTO `info` VALUES (null,'$uname','$upass','$umail','$uphone')";
 $res = mysqli_query($conn,$sql);
 mysqli_close($conn);

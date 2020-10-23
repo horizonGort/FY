@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>京东(JD.COM)-正品低价、品质保障、配送及时、轻松购物！</title>
+    <link rel="shortcut icon" href="../images/jdimg/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="../css/cart.css">
     <link rel="stylesheet" href="../css/item.css">
     
@@ -213,10 +214,10 @@
                 <div class="sku-input">
                     <div class="sku-num">
                         <input type="text" value="1" class="sku-textnum">
-                        <a href="">+</a>
-                        <a href="">-</a>
+                        <a class="add">+</a>
+                        <a  class="jian">-</a>
                     </div>
-                    <a href="" class="sku-cart">加入购物车</a>
+                    <a  class="sku-cart">加入购物车</a>
                     <a href="./cart.html" class="sku-mecart">我的购物车</a>
                 </div>
                 <div class="dt">温馨提示 &emsp;支持7天无理由退货</div>
@@ -227,11 +228,21 @@
     <script src="../lib/jquery.min.js"></script>
     <script>
         //点击购物车,把商品加入数据库
+        $('.add').click(function(){
+            $('.sku-textnum').attr('value',Number($('.sku-textnum').val())+1)
+        })
+        $('.jian').click(function(){
+            $('.sku-textnum').attr('value',Number($('.sku-textnum').val())-1)
+            if(Number($('.sku-textnum').val())<1){
+                $('.sku-textnum').attr('value','1')
+            }
+        })
         $('.sku-cart').click(function(){
+            alert('商品加入成功')
             $.ajax({
                 url:'http://localhost/cyrshop/interface/addwq.php',
                 data:{
-                    id:'112312214324',
+                    id:'112121334324',
                     name:'手机',
                     price:122,
                     img:'../images/itemimg/pic_0047.jpg',
@@ -239,7 +250,7 @@
                 },
                 success:function(res){
                     if(res.code){
-                        alert('商品加入成功')
+                        // alert('商品加入成功')
                     }    
                 },
                 dataType:'json'

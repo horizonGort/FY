@@ -11,7 +11,7 @@ $uname = $_GET['username'];//获取前端传递的用户名
 $upass = $_GET['password'];//获取前端传递的密码
 
 
-$conn = mysqli_connect('127.0.0.1','root','root','user');
+$conn = mysqli_connect('127.0.0.1','root','root','shop');
 $sql = "SELECT * FROM `info` WHERE `username`='$uname' AND `password`='$upass'";
 $res = mysqli_query($conn,$sql);
 $row = mysqli_fetch_assoc($res);

@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>京东(JD.COM)-正品低价、品质保障、配送及时、轻松购物！</title>
+    <link rel="shortcut icon" href="../images/jdimg/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="../css/cart.css">
 </head>
 <body>
@@ -109,8 +110,9 @@
             <div class="price-sum">
                 <div class="ps">
                     <span class="txt txt-new">总价：</span>
+                    <span class="sumPrice">¥</span>
                     <span class="price sumPrice">
-                        ¥0.00
+                        0.00
                     </span>
                 </div>
             </div>
@@ -123,6 +125,14 @@
         </a>
         
     </div>
+    <div class="w">
+         <a href="./jd.html">
+            <div class="space-cart">
+            没有添加商品，快去商城看看吧！
+            </div>
+        </a>
+    </div>
+    
     <script src="../lib/jquery.min.js"></script>
     <script>
         // 一打开购物车页面,展示购物车里面的商品
@@ -153,7 +163,7 @@
                                     <div class="column car-price">${item.product_price}</div>
                                     <div class="column car-quantity">
                                         <span class="jian">-</span>
-                                        <span>${item.product_num}</span>
+                                        <span class="pn">${item.product_num}</span>
                                         <span class='add'>+</span>
                                     </div>
                                     <div class="column car-sum">
@@ -167,28 +177,8 @@
                                 </div>
                                 
                                 `
-
-                                // `
-                                // <tr id="${item.product_id}">
-                                //     <td>${item.product_name}</td>
-                                //     <td>
-                                //         <img src="${item.product_img}" alt="">
-                                //     </td>
-                                //     <td>${item.product_price}</td>
-                                //     <td>
-                                //         <span class='add'>+</span>
-                                //         <span>${item.product_num}</span>
-                                //         <span class="jian">-</span>
-                                //     </td>
-                                //     <td class="del">删除</td>
-                                // </tr>
-                                // `
                                 )
-                                // $('.price').append(
-                                // `
-                                // ${(item.product_num)*(item.product_price)}
-                                // `
-                                // )
+                                $('.price').html(Number($('.car-price').html())*(Number($('.pn').html())))
                             })
                         }              
 
@@ -208,6 +198,7 @@
         $('.listall').click(function(e){
             var target = e.target;
             // target是一个dom节点
+            
             if((target.className=='add')||(target.className=='jian')){
                 // 点击+增加一个商品数量,点击-减少一个商品数量
                 $.ajax({
@@ -220,9 +211,16 @@
                         if(res.code){
                             showTbody()
                         }
+                        
                     },
                     dataType:'json'
+                    
                 })
+                if(target.className=='add'){
+                    $('.price').html(Number($('.car-price').html())*(Number($('.pn').html())+1))
+                }else if(target.className=='jian'){
+                    $('.price').html(Number($('.car-price').html())*(Number($('.pn').html())-1))
+                }
             }else if(target.className=='del'){
                 
                 // 点击删除按钮删除一个商品
@@ -239,7 +237,9 @@
                     dataType:'json'
                 })
             }
+            
         })
+        
     </script>
 
 
